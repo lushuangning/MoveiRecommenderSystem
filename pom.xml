@@ -23,7 +23,7 @@
     <mysql-connector.version>5.1.38</mysql-connector.version>
     <fastjson.version>1.2.17</fastjson.version>
     <c3p0.version>0.9.5.2</c3p0.version>
-    <hadoop.version>2.6.0</hadoop.version>
+    <hadoop.version>2.7.5</hadoop.version>
   </properties>
 
   <dependencyManagement>
