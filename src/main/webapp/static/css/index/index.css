@@ -1,0 +1,52 @@
+html{
+
+}
+
+body{
+	
+}
+
+.audio-center{
+	position: relative;
+	width: 460px;
+	top: 100%;
+	left: 50%;
+	margin-top: -60px;
+	margin-left: -230px;
+}
+
+.thumbnail a > img{
+	height: 345px;
+}
+
+.lsn-login{
+	position: relative;
+	width: 45px;
+	left:97%;
+	margin-top: -200px; 
+}
+
+/*透明
+.panel{
+
+	filter:alpha(opacity=50); 
+     	 -moz-opacity:0.5;  
+     	 -khtml-opacity: 0.5;  
+     	 opacity: 0.5;  
+}*/
+
+a:hover{
+	text-decoration: none;
+}
+
+.snow {
+	position: absolute;
+	top: 0;
+	color: #fff;
+}
+
+.snowbg {
+	clear: both;
+	margin: 0 auto;
+	position: relative;
+}

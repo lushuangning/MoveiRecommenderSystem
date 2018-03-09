@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd" >
+
+	<!-- 启用Spring基于annotation的DI, 使用户可以在Spring MVC中使用Spring的强大功能。 激活 @Required 
+		@Autowired,JSR 250's @PostConstruct, @PreDestroy and @Resource 等标注 -->
+	<context:annotation-config />
+
+    <!-- 扩充了注解驱动，可以将请求参数绑定到控制器参数 -->
+    <mvc:annotation-driven />
+
+	<!-- DispatcherServlet上下文 -->
+	<context:component-scan base-package="cn.cuit.lsn">
+		<context:include-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+
+
+	<!-- 静态资源处理， css， js， imgs -->
+	<!-- 下面两行代码的配置至关重要 -->
+	<mvc:default-servlet-handler/>
+	<mvc:resources mapping="/static/**" location="/static/" />
+
+	
+	<!-- 配置ViewResolver。 可以用多个ViewResolver。 使用order属性排序。 InternalResourceViewResolver放在最后。 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	
+	<!-- 支持上传文件配置 -->  
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+    	<property name="maxUploadSize" value="104857600" />
+     	<property name="maxInMemorySize" value="4096" />
+     	<property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+
+
+</beans>

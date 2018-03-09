@@ -1,0 +1,66 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                      http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1"
+         metadata-complete="true">
+
+  <display-name>Archetype Created Web Application</display-name>
+
+    <!-- Spring配置文件开始 -->
+    <context-param>
+        <!-- 此处配置的contextConfigLocation配置到了ServletContext中，ServletContext是Context级的 -->
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/confgs/applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    <!-- Spring配置文件结束 -->
+
+    <!-- spring mvc配置 -->
+    <servlet>
+        <servlet-name>dispatcher-servlet</servlet-name>
+        <servlet-class> org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!-- DispatcherServlet对应的上下文配置， 默认为/WEB-INF/$servlet-name$-servlet.xml
+         -->
+        <init-param>
+            <!-- 此处配置的contextConfigLocation配置到了ServletConfig中，ServletConfig是Servlet级的 -->
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/confgs/dispatcher-servlet.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatcher-servlet</servlet-name>
+        <!-- mvc-dispatcher拦截请求-->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- 配置过滤器解决乱码 -->
+    <filter>
+        <filter-name>encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>utf8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>encoding</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cuit.lsn.dao.BooksDao">
+
+	<select id="queryBookByName" resultType="cn.cuit.lsn.dto.BooksDto" parameterType="String">
+		select book_name,author_name,press,category,format from books
+		where book_name = #{bookName}
+	</select>
+	
+	<select id="queryBooksWithType" resultType="cn.cuit.lsn.dto.BooksDto" parameterType="String">
+		select book_name,author_name,press,category,format from books
+		where category = #{category}
+	</select>
+	
+	<select id="queryAllBooks" resultType="cn.cuit.lsn.dto.BooksDto">
+		select book_name,author_name,press,category,format from books
+	</select>
+	
+	<insert id="saveBookInfo" parameterType="cn.cuit.lsn.pojo.Books">
+		insert into books(book_name,author_name,press,category,format) values(
+			#{bookName},#{authorName},#{press},#{category},#{format}
+		)
+	</insert>
+
+</mapper>
