@@ -14,7 +14,7 @@ public interface HDFSOperationService {
      * @param dstHdfs hdfs文件系统地址
      * @throws IOException
      */
-    void uploadFile(String srcServer, String dstHdfs);
+    void copyFromLocal(String srcServer, String dstHdfs);
 
     /**
      *在hdfs文件系统中创建文件夹
