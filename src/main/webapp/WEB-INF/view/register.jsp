@@ -10,9 +10,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Insert title here</title>
+    <title>用户注册</title>
     <link rel="stylesheet" type="text/css" href="<%=web_domain %>/static/framework/bootstrap-3.3.7/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<%=web_domain %>/static/css/login.css">
+    <link rel="icon" href="<%=web_domain %>/static/img/easyicon.ico" type="image/x-ico" />
 </head>
 <body>
 <div class="login-main">
@@ -35,12 +36,12 @@
 
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <form class="form-horizontal" role="form">
+                        <form id="user-register" class="form-horizontal" role="form">
 
                             <div class="form-group">
 
                                 <div class="">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="邮箱"/>
+                                    <input type="email" class="form-control" id="userEmail" placeholder="邮箱"/>
                                 </div>
 
                             </div>
@@ -48,7 +49,15 @@
                             <div class="form-group">
 
                                 <div class="">
-                                    <input type="password" class="form-control" id="inputPasswd" placeholder="密码"/>
+                                    <input type="text" class="form-control" id="userName" placeholder="昵称"/>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <div class="">
+                                    <input type="password" class="form-control" id="userPasswd" placeholder="密码"/>
                                 </div>
 
                             </div>
@@ -61,14 +70,33 @@
 
                             </div>
 
+                            <div class="form-group">
+                                <div class="row clearfix">
+                                    <div class="col-md-4 column">
+
+                                        <label class="title-center"><input type="radio" checked="checked" name="role"/>管理员</label>
+                                    </div>
+
+                                    <div class="col-md-4 column">
+                                        <label class="title-center"><input type="radio" name="role"/>普通用户</label>
+                                    </div>
+
+                                    <div class="col-md-4 column">
+                                        <label class="title-center"><input type="radio" name="role"/>新用户</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="">
+                                    <button type="button" class="btn btn-info btn-block">注&nbsp;&nbsp;&nbsp;册</button>
+                                </div>
+                            </div>
 
                         </form>
 
-                        <div class="form-group">
-                            <div class="">
-                                <button type="submit" class="btn btn-info btn-block">注&nbsp;&nbsp;&nbsp;册</button>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 

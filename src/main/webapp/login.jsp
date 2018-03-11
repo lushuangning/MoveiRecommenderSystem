@@ -10,9 +10,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Insert title here</title>
+    <title>用户登录</title>
     <link rel="stylesheet" type="text/css" href="<%=web_domain %>/static/framework/bootstrap-3.3.7/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="<%=web_domain %>/static/css/login.css">
+    <link rel="icon" href="<%=web_domain %>/static/img/easyicon.ico" type="image/x-ico" />
 </head>
 <body>
 <div class="login-main">
@@ -35,48 +36,30 @@
 
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <form class="form-horizontal" role="form">
+
+                        <form id="user-login" class="form-horizontal" role="form">
 
                             <div class="form-group">
 
-                                <div class="">
-                                    <input type="email" class="form-control" id="inputEmail" placeholder="邮箱"/>
-                                </div>
+                                <input type="email" id="userEmail" name="userEmail" class="form-control" placeholder="邮箱" required="required" />
 
                             </div>
 
                             <div class="form-group">
 
-                                <div class="">
-                                    <input type="password" class="form-control" id="inputPasswd" placeholder="密码"/>
-                                </div>
+                                <input type="password" id="userPasswd" name="userPasswd" class="form-control" placeholder="密码" required="required"/>
 
                             </div>
 
                             <div class="form-group">
-                                <div class="row clearfix">
-                                    <div class="col-md-4 column">
 
-                                        <label class="title-center"><input type="radio" checked="checked" name="role"/>管理员</label>
-                                    </div>
+	                            <button id="login" type="button" class="btn btn-info btn-block" disabled="true">登&nbsp;&nbsp;&nbsp;录</button>
 
-                                    <div class="col-md-4 column">
-                                        <label class="title-center"><input type="radio" name="role"/>普通用户</label>
-                                    </div>
-
-                                    <div class="col-md-4 column">
-                                        <label class="title-center"><input type="radio" name="role"/>新用户</label>
-                                    </div>
-
-                                </div>
-                            </div>
+	                        </div>
+                            
                         </form>
 
-                        <div class="form-group">
-                            <div class="">
-                                <button type="submit" class="btn btn-info btn-block">登&nbsp;&nbsp;&nbsp;录</button>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 
@@ -96,6 +79,8 @@
     </div>
 </div>
 
-</div>
+<script type="text/javascript" src="<%=file_domain %>/framework/jquery/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.serializejson.js"></script>
+<script type="text/javascript" src="../../static/js/login.js"></script>
 </body>
 </html>

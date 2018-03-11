@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cuit.lsn.dao.UserDao">
+
+    <select id="loginCheck" parameterType="cn.cuit.lsn.dto.UserLoginDto">
+        select userId from users
+        where userEmail= #{userEmail} and userPasswd = #{userPasswd}
+    </select>
+
+    <select id="userInfo" resultType="cn.cuit.lsn.dto.UserInfoDto" parameterType="Integer">
+        SELECT users.userId,users.userName,users.userEmail,roles.roleName
+        FROM users
+        JOIN users_roles
+        ON users.userId = users_roles.userId
+        JOIN roles
+        ON users_roles.roleId = roles.roleId
+        WHERE users.userId = #{userId}
+    </select>
+
+</mapper>
