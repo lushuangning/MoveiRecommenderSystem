@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/static/css/public/font-awesome-4.7.0/fonts/fontawesome-webfont.eot');
+}
+
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { 
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei',微软雅黑,Arial, sans-serif;
+}
+
+html{
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	background: #ebebeb;
+
+}
+
+.title-center{
+	display: block;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.login-main{
+	height: 100%;
+	width: 100%;
+	display:flex;/*Flex布局*/
+    display: -webkit-flex; /* Safari */
+    align-items:center;/*指定垂直居中*/
+
+    background-image: url('/static/img/loginback.jpg');
+    background-size:cover; 
+}
+
+.find-passwd{
+	float: right;
+	text-align: center;
+}
+

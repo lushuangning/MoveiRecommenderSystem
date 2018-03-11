@@ -11,7 +11,7 @@
 
   <display-name>Archetype Created Web Application</display-name>
 
-    <!-- Spring配置文件开始 -->
+<!--Start Spring配置文件 -->
     <context-param>
         <!-- 此处配置的contextConfigLocation配置到了ServletContext中，ServletContext是Context级的 -->
         <param-name>contextConfigLocation</param-name>
@@ -23,9 +23,9 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-    <!-- Spring配置文件结束 -->
+<!--Stop Spring配置文件 -->
 
-    <!-- spring mvc配置 -->
+<!--Start spring mvc配置 -->
     <servlet>
         <servlet-name>dispatcher-servlet</servlet-name>
         <servlet-class> org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -44,8 +44,10 @@
         <!-- mvc-dispatcher拦截请求-->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+<!--Stop spring mvc配置 -->
 
-    <!-- 配置过滤器解决乱码 -->
+
+<!--Start 配置过滤器解决乱码 -->
     <filter>
         <filter-name>encoding</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -59,8 +61,29 @@
         <filter-name>encoding</filter-name>
         <url-pattern>*</url-pattern>
     </filter-mapping>
+<!--Stop 配置过滤器解决乱码 -->
 
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
+
+<!--Start 系统容错处理 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/view/error/404.jsp</location>
+    </error-page>
+
+    <!-- 服务器内部错误 -->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/view/error/500.jsp</location>
+    </error-page>
+
+    <!-- 空指针异常 -->
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/WEB-INF/view/error/other.jsp</location>
+    </error-page>
+<!--Stop 系统容错处理 -->
+
 </web-app>

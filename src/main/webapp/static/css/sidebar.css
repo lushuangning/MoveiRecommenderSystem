@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('/static/css/public/font-awesome-4.7.0/fonts/fontawesome-webfont.eot');
+}
+
+body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { 
+	font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei',微软雅黑,Arial, sans-serif;
+}
+
+.sidebar{
+    height: 100%;
+    background-color: #333333;
+}

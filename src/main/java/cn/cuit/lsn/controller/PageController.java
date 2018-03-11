@@ -24,4 +24,10 @@ public class PageController {
 
         return "upload";
     }
+
+	@RequestMapping("/register")
+	public String register(){
+
+		return "register";
+	}
 }
