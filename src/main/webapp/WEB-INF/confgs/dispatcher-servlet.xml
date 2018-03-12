@@ -23,17 +23,17 @@
 	</context:component-scan>
 
     <!-- 注册拦截器 -->
-    <!--<mvc:interceptors>-->
+    <mvc:interceptors>
 
-        <!--<mvc:interceptor>-->
-            <!--&lt;!&ndash; 进行拦截：/**表示拦截所有controller &ndash;&gt;-->
-            <!--<mvc:mapping path="/**"/>-->
-            <!--&lt;!&ndash; 不进行拦截 &ndash;&gt;-->
-            <!--<mvc:exclude-mapping path="/static/**"/>-->
-            <!--<bean class="cn.cuit.lsn.interceptor.LoginInterceptor"></bean>-->
-        <!--</mvc:interceptor>-->
+        <mvc:interceptor>
+            <!-- 进行拦截：/**表示拦截所有controller -->
+            <mvc:mapping path="/**"/>
+            <!-- 不进行拦截 -->
+            <mvc:exclude-mapping path="/static/**"/>
+            <bean class="cn.cuit.lsn.interceptor.LoginInterceptor"></bean>
+        </mvc:interceptor>
 
-    <!--</mvc:interceptors>-->
+    </mvc:interceptors>
 
 	<!-- 静态资源处理， css， js， imgs -->
 	<!-- 下面两行代码的配置至关重要 -->

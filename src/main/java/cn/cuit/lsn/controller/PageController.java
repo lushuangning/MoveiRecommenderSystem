@@ -1,6 +1,8 @@
 package cn.cuit.lsn.controller;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,14 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class PageController {
+    private static Logger logger = LoggerFactory.getLogger(PageController.class);
+
 	@Autowired
     //注入Service
 
-	private static final Logger logger = Logger.getLogger(PageController.class);
 	
 	@RequestMapping("/index")
 	public String index(){
-		
+        logger.info("----------------------------------------------"  + "I'm LOG");
 		return "index";
 	}
 

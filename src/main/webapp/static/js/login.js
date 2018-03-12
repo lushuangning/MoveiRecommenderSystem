@@ -45,9 +45,11 @@ $(document).ready(function(){
 
     // 加载成功
     function succFunction(data){
-        window.location.href = '你的跳转的目标地址';
 
         var json = eval(data);
+        if (data != '') {
+        	window.location.href = 'index';
+        }
         
     };
 
@@ -55,7 +57,8 @@ $(document).ready(function(){
     function errorFunction(jqXHR){
     	$("#login").html("登&nbsp;&nbsp;&nbsp;录");
     	
-        alert("发生错误：" + jqXHR.status);
+        // alert("发生错误：" + jqXHR.status);
+        alert('用户名或密码不正确，请重试');
         
     };
 

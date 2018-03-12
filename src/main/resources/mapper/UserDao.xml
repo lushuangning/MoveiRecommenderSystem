@@ -4,9 +4,19 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cuit.lsn.dao.UserDao">
 
-    <select id="loginCheck" parameterType="cn.cuit.lsn.dto.UserLoginDto">
+    <select id="loginCheck" parameterType="cn.cuit.lsn.dto.UserLoginDto" resultType="Integer">
         select userId from users
         where userEmail= #{userEmail} and userPasswd = #{userPasswd}
+    </select>
+
+    <select id="getUserId" parameterType="String" resultType="Integer">
+        select userId from users
+        where userEmail= #{userEmail}
+    </select>
+
+    <select id="getRoleId" parameterType="String" resultType="Integer">
+        select roleId from roles
+        where roleName= #{roleName}
     </select>
 
     <select id="userInfo" resultType="cn.cuit.lsn.dto.UserInfoDto" parameterType="Integer">
@@ -18,5 +28,13 @@
         ON users_roles.roleId = roles.roleId
         WHERE users.userId = #{userId}
     </select>
+
+    <insert id="userRegister" parameterType="cn.cuit.lsn.dto.UserRegisterDto">
+        INSERT INTO users(userName,userPasswd,userEmail) VALUES (#{userName},#{userPasswd},#{userEmail})
+    </insert>
+
+    <insert id="usersRoles">
+        INSERT INTO users_roles(userId,roleId)  VALUES (#{userId},#{roleId})
+    </insert>
 
 </mapper>

@@ -10,8 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Service("uploadService")
 public class UploadServiceImpl implements UploadService {
 
-    private static final Logger logger = Logger.getLogger(UploadServiceImpl.class);
-
     @Override
     public String uploadDataFile(MultipartFile dataFile,String dstSever) {
 

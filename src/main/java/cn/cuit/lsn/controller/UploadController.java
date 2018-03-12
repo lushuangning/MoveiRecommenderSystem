@@ -23,7 +23,6 @@ public class UploadController {
     @Autowired
     private UploadService uploadService;
 
-    private static final Logger logger = Logger.getLogger(UploadController.class);
 
     @RequestMapping("/dataFile")
     @ResponseBody

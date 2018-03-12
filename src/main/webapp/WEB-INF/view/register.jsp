@@ -40,33 +40,25 @@
 
                             <div class="form-group">
 
-                                <div class="">
-                                    <input type="email" class="form-control" id="userEmail" placeholder="邮箱"/>
-                                </div>
+                                <input type="email" class="form-control" id="userEmail" placeholder="邮箱"/>
 
                             </div>
 
                             <div class="form-group">
 
-                                <div class="">
-                                    <input type="text" class="form-control" id="userName" placeholder="昵称"/>
-                                </div>
+                                <input type="text" class="form-control" id="userName" placeholder="昵称"/>
 
                             </div>
 
                             <div class="form-group">
 
-                                <div class="">
-                                    <input type="password" class="form-control" id="userPasswd" placeholder="密码"/>
-                                </div>
+                                <input type="password" class="form-control" id="userPasswd" placeholder="密码"/>
 
                             </div>
 
                             <div class="form-group">
 
-                                <div class="">
-                                    <input type="password" class="form-control" id="confirmPasswd" placeholder="确认密码"/>
-                                </div>
+                                <input type="password" class="form-control" id="confirmPasswd" placeholder="确认密码"/>
 
                             </div>
 
@@ -74,28 +66,27 @@
                                 <div class="row clearfix">
                                     <div class="col-md-4 column">
 
-                                        <label class="title-center"><input type="radio" checked="checked" name="role"/>管理员</label>
+                                        <label class="title-center"><input type="radio" checked="checked" value="管理员" name="role"/>管理员</label>
                                     </div>
 
                                     <div class="col-md-4 column">
-                                        <label class="title-center"><input type="radio" name="role"/>普通用户</label>
+                                        <label class="title-center"><input type="radio" value="普通用户" name="role"/>普通用户</label>
                                     </div>
 
                                     <div class="col-md-4 column">
-                                        <label class="title-center"><input type="radio" name="role"/>新用户</label>
+                                        <label class="title-center"><input type="radio" value="新用户" name="role"/>新用户</label>
                                     </div>
 
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="">
-                                    <button type="button" class="btn btn-info btn-block">注&nbsp;&nbsp;&nbsp;册</button>
-                                </div>
+                               
+                                <button id="register" type="button" class="btn btn-info btn-block">注&nbsp;&nbsp;&nbsp;册</button>
+                            
                             </div>
 
                         </form>
-
                         
                     </div>
                 </div>
@@ -106,16 +97,17 @@
                     </div>
                 </div>
 
-
             </div>
-
 
         </div>
 
-
     </div>
-</div>
 
 </div>
+
+<script type="text/javascript" src="<%=file_domain %>/framework/jquery/jquery-3.1.1.js"></script>
+<script type="text/javascript" src="../../static/js/jquery.serializejson.js"></script>
+<script type="text/javascript" src="../../static/js/register.js"></script>
+
 </body>
 </html>
