@@ -1,7 +1,5 @@
 package cn.cuit.lsn.pojo;
 
-import java.util.Set;
-
 public class User {
     private Integer userId;
     private String userName;

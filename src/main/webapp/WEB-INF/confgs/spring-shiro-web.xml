@@ -29,8 +29,8 @@
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager" />
-        <property name="loginUrl" value="/" />
-        <property name="unauthorizedUrl" value="/" />
+        <property name="loginUrl" value="/login" />
+        <property name="unauthorizedUrl" value="/refuse" />
         <property name="filterChainDefinitions">
             <value>
                 /authc/admin = roles[admin]

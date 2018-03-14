@@ -12,7 +12,7 @@ $(document).ready(function(){
 		if ($('#userPasswd').val() == $('#confirmPasswd').val()) {
 			$.ajax({
 		        type : 'POST',
-		        url : 'http://localhost:8080/loginRegister/userRegister',
+		        url : 'http://localhost:8080/loginRegister/register',
 		        contentType:'application/json;charset=UTF-8',
 		        dataType: 'json',
 		        data: jsonData,

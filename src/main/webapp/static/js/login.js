@@ -25,7 +25,7 @@ $(document).ready(function(){
 		console.log(jsonData);
 		$.ajax({
 	        type : 'POST',
-	        url : 'http://localhost:8080/loginRegister/userLogin',
+	        url : 'http://localhost:8080/loginRegister/login',
 	        contentType:'application/json;charset=UTF-8',
 	        dataType: 'json',
 	        data: jsonData,

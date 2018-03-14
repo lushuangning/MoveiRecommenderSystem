@@ -20,9 +20,13 @@ public class UploadController {
     private static final String dstSever = "/tmp/";
     private static final String dstHdfs = "input/test/";
 
-    @Autowired
-    private UploadService uploadService;
 
+    private final UploadService uploadService;
+
+    @Autowired
+    public UploadController(UploadService uploadService) {
+        this.uploadService = uploadService;
+    }
 
     @RequestMapping("/dataFile")
     @ResponseBody

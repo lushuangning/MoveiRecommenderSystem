@@ -4,10 +4,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.cuit.lsn.dao.UserDao">
 
-    <select id="loginCheck" parameterType="cn.cuit.lsn.dto.UserLoginDto" resultType="Integer">
-        select userId from users
-        where userEmail= #{userEmail} and userPasswd = #{userPasswd}
-    </select>
+    <resultMap id="roles" type="cn.cuit.lsn.pojo.Role">
+        <result column="roleId" property="roleId" />
+        <result column="roleName" property="roleName"/>
+    </resultMap>
 
     <select id="getUserId" parameterType="String" resultType="Integer">
         select userId from users
@@ -19,22 +19,38 @@
         where roleName= #{roleName}
     </select>
 
-    <select id="userInfo" resultType="cn.cuit.lsn.dto.UserInfoDto" parameterType="Integer">
-        SELECT users.userId,users.userName,users.userEmail,roles.roleName
-        FROM users
-        JOIN users_roles
-        ON users.userId = users_roles.userId
-        JOIN roles
-        ON users_roles.roleId = roles.roleId
-        WHERE users.userId = #{userId}
-    </select>
+    <!--<select id="userInfo" resultType="cn.cuit.lsn.dto.UserInfoDto" parameterType="Integer">-->
+        <!--SELECT users.userId,users.userName,users.userEmail,roles.roleName-->
+        <!--FROM users-->
+        <!--JOIN users_roles-->
+        <!--ON users.userId = users_roles.userId-->
+        <!--JOIN roles-->
+        <!--ON users_roles.roleId = roles.roleId-->
+        <!--WHERE users.userId = #{userId}-->
+    <!--</select>-->
 
-    <insert id="userRegister" parameterType="cn.cuit.lsn.dto.UserRegisterDto">
+    <insert id="register" parameterType="cn.cuit.lsn.dto.UserRegisterDto">
         INSERT INTO users(userName,userPasswd,userEmail) VALUES (#{userName},#{userPasswd},#{userEmail})
     </insert>
 
     <insert id="usersRoles">
         INSERT INTO users_roles(userId,roleId)  VALUES (#{userId},#{roleId})
     </insert>
+
+    <select id="findRoles" parameterType="String" resultMap="Roles">
+        SELECT roles.roleId,roles.roleName
+        FROM users
+        JOIN users_roles
+        ON users.userId = users_roles.userId
+        JOIN roles
+        ON users_roles.roleId = roles.roleId
+        WHERE users.userEmail = #{userEmail}
+    </select>
+
+    <select id="findByUserEmail" parameterType="String" resultType="cn.cuit.lsn.pojo.User">
+        select * from users
+        where userEmail= #{userEmail}
+    </select>
+
 
 </mapper>

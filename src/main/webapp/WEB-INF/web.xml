@@ -15,7 +15,9 @@
     <context-param>
         <!-- 此处配置的contextConfigLocation配置到了ServletContext中，ServletContext是Context级的 -->
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/confgs/applicationContext.xml</param-value>
+        <param-value>
+            /WEB-INF/confgs/applicationContext.xml
+        </param-value>
     </context-param>
 
     <listener>
@@ -34,7 +36,7 @@
         <init-param>
             <!-- 此处配置的contextConfigLocation配置到了ServletConfig中，ServletConfig是Servlet级的 -->
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/confgs/dispatcher-servlet.xml</param-value>
+            <param-value>/WEB-INF/confgs/dispatcher-servlet.xml,/WEB-INF/confgs/spring-shiro-web.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -73,9 +75,9 @@
     </filter-mapping>
 <!--Stop 配置过滤器解决乱码 -->
 
-    <welcome-file-list>
-        <welcome-file>login.jsp</welcome-file>
-    </welcome-file-list>
+    <!--<welcome-file-list>-->
+        <!--<welcome-file>login.jsp</welcome-file>-->
+    <!--</welcome-file-list>-->
 
 <!--Start 系统容错处理 -->
     <error-page>
@@ -96,16 +98,25 @@
     </error-page>
 <!--Stop 系统容错处理 -->
 
-    <!-- Shiro filter-->
+<!-- shiro配置 开始 -->
     <filter>
         <filter-name>shiroFilter</filter-name>
-        <filter-class>
-            org.springframework.web.filter.DelegatingFilterProxy
-        </filter-class>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>targetFilterLifecycle</param-name>
+            <param-value>true</param-value>
+        </init-param>
     </filter>
+
     <filter-mapping>
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+        <dispatcher>INCLUDE</dispatcher>
+        <dispatcher>ERROR</dispatcher>
     </filter-mapping>
+<!-- shiro配置 结束 -->
 
 </web-app>
