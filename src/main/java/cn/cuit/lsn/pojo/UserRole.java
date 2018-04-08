@@ -1,5 +1,8 @@
 package cn.cuit.lsn.pojo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class UserRole {
 
     private User user;

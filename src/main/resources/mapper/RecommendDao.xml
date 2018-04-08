@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.cuit.lsn.dao.RecommendDao">
+
+    <resultMap id="recommendList" type="cn.cuit.lsn.pojo.MovieInfo">
+        <result column="title" property="title" />
+        <result column="genres" property="genres"/>
+    </resultMap>
+
+    <select id="getRecommendMovie" parameterType="Integer" resultMap="recommendList">
+        SELECT movies.title,movies.genres
+        FROM predictions
+        JOIN movies
+        ON predictions.movieId = movies.movieId
+        WHERE predictions.userId = #{userId}
+    </select>
+
+</mapper>

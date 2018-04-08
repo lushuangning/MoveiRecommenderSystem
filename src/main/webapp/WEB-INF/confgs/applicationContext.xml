@@ -18,19 +18,19 @@
     <!-- 2.数据库连接池配置 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<!-- 配置连接池属性 -->
-		<property name="driverClass" value="${jdbc.driverClassName}"></property>
-		<property name="jdbcUrl" value="${jdbc.url}"></property>
-		<property name="user" value="${jdbc.user}"></property>
-		<property name="password" value="${jdbc.password}"></property>
+		<property name="driverClass" value="${jdbc.driverClassName}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.user}"/>
+		<property name="password" value="${jdbc.password}"/>
 		
 		<!-- c3p0连接池的私有属性 -->
-		<property name="maxPoolSize" value="200"></property>
-		<property name="minPoolSize" value="10"></property>
-		<property name="autoCommitOnClose" value="false"></property>
+		<property name="maxPoolSize" value="200"/>
+		<property name="minPoolSize" value="10"/>
+		<property name="autoCommitOnClose" value="false"/>
 		<!-- 获取连接超时时间 -->
-		<property name="checkoutTimeout" value="5000"></property>
+		<property name="checkoutTimeout" value="5000"/>
 		<!-- 获取连接失败重试次数 -->
-		<property name="acquireRetryAttempts" value="2"></property>
+		<property name="acquireRetryAttempts" value="2"/>
 		<property name="acquireIncrement" value="5"/>
 	</bean>
 	
@@ -39,11 +39,11 @@
 		<!-- 注入数据库连接池 -->
 		<property name="dataSource" ref="dataSource" />
 		<!-- 配置mybatis全局配置文件:mybatis-config.xml -->
-		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:mybatis-config.xml"/>
 		<!-- 扫描entity包，使用别名 -->
 		<property name="typeAliasesPackage" value="cn.cuit.lsn.pojo" />
 		<!-- 扫描sql配置文件:mapper需要的xml文件 -->
-		<property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+		<property name="mapperLocations" value="classpath:mapper/*.xml"/>
 		<!-- MabatisPageHelper配置 -->
 		<property name="plugins">
 			<array>
@@ -67,9 +67,9 @@
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 注入sqlSessionFactory -->
-		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 		<!-- 给出扫描Dao接口包 -->
-		<property name="basePackage" value="cn.cuit.lsn.dao"></property>
+		<property name="basePackage" value="cn.cuit.lsn.dao"/>
 	</bean>
 
 

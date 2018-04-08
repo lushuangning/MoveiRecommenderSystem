@@ -18,20 +18,20 @@ public class UserServiceImpl implements UserService {
     private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Autowired
-    UserDao userDao;
-
+    private UserDao userDao;
 
     @Override
     public Set<Role> findRoles(String userEmail) {
-
 
         return userDao.findRoles(userEmail);
     }
 
     @Override
     public User findUserByEmail(String userEmail) {
-
-        return userDao.findUserByEmail(userEmail);
+        System.out.println("--------------------------------待查询的账号为:" + userEmail);
+        User user = userDao.findUserByEmail(userEmail);
+        System.out.println("--------------------------------查询到的用户为:" + user.getUserName());
+        return user;
     }
 
     @Override
@@ -39,7 +39,8 @@ public class UserServiceImpl implements UserService {
         userDao.register(userRegisterDto);
         Integer userId = userDao.getUserId(userRegisterDto.getUserEmail());
         Integer roleId = userDao.getRoleId(userRegisterDto.getRoleName());
-        logger.info("-----------------------------------------------------用户id为：" + userId + "，角色id为：" + roleId);
+        System.out.println("-----------------------------------------------------用户id为：" + userId + "，角色id为：" + roleId);
+//        logger.info("-----------------------------------------------------用户id为：" + userId + "，角色id为：" + roleId);
         userDao.usersRoles(userId,roleId);
     }
 }

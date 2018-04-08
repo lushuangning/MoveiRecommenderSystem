@@ -40,24 +40,12 @@
                         <ul class="tm-nav uk-nav" data-uk-nav>
                             <li class="uk-nav-header">普通用户</li>
                             <li><a href="index">首页</a></li>
-                            <li><a href="#">如何定制</a></li>
-                            <li><a href="#">布局示例</a></li>
+                            <li><a href="algorithm">推荐设置</a></li>
+                            <li><a href="showRecommendation">结果展示</a></li>
                             <li class="uk-nav-header">管理员</li>
                             <li><a class="uk-active" href="upload">上传文件</a></li>
-                            <li><a href="#">Less &amp; Sass 文件</a></li>
-                            <li><a href="#">创建主题</a></li>
-                            <li><a href="#">创建样式</a></li>
-                            <li><a href="#">Customizer.json</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                            <li><a href="#">自定义前缀</a></li>
-                            <li><a href="#">创建样式</a></li>
-                            <li><a href="#">Customizer.json</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                            <li><a href="#">自定义前缀</a></li>
-                            <li><a href="#">创建样式</a></li>
-                            <li><a href="#">Customizer.json</a></li>
-                            <li><a href="#">JavaScript</a></li>
-                            <li><a href="#">自定义前缀</a></li>
+                            <li><a href="http://localhost:8088/cluster">任务进度监控</a></li>
+                            <li><a href="http://localhost:50070/explorer.html#/">HDFS文件管理</a></li>
                         </ul>
 
                     </div>
@@ -67,8 +55,50 @@
                             <div>
                                 <label >数据文件上传:</label>
                                 <div>
-                                    <input id="input-id" name="dataFile" type="file" data-show-caption="true">
+                                    <input id="input-id" name="dataFile" multiple type="file" data-show-caption="true">
                                 </div>
+                            </div>
+                        </form>
+
+
+                        <div class="uk-badge uk-badge-success">文件确认</div>
+
+                        <form class="uk-form uk-form-horizontal">
+                            <div class="uk-form-row">
+
+                                <label class="uk-form-label">评分文件</label>
+                                <div class="uk-form-icon">
+                                    <i class="uk-icon-file-code-o"></i>
+                                    <input id="ratings" type="text" class="uk-form-width-medium">
+                                </div>
+
+                            </div>
+
+                            <div class="uk-form-row">
+
+                                <label class="uk-form-label">电影详情文件</label>
+                                <div class="uk-form-icon">
+                                    <i class="uk-icon-folder"></i>
+                                    <input id="movies" type="text" class="uk-form-width-medium" />
+                                </div>
+
+                            </div>
+
+                            <div class="uk-form-row">
+
+                                <label class="uk-form-label">链接文件</label>
+                                <div class="uk-form-icon">
+                                    <i class="uk-icon-folder"></i>
+                                    <input id="links" type="text" class="uk-form-width-medium" />
+                                </div>
+
+                            </div>
+
+                            <div class="uk-form-row">
+
+                                <button type="button" class="uk-button uk-width-1-4">取消</button>
+                                <button type="button" id="confirm" class="uk-button uk-width-1-4 uk-button-primary">确认</button>
+
                             </div>
                         </form>
 
@@ -96,7 +126,7 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="../../static/framework/bootstrap-3.3.7/js/bootstrap.js"></script>
+<script type="text/javascript" src="../../static/framework/bootstrap-3.3.7/js/bootstrap.js"></script>
 <script type="text/javascript" src="../../static/components/fileinput.js"></script>
 <script type="text/javascript" src="../../static/components/fileinput-zh.js"></script>
 <script type="text/javascript" src="../../static/js/upload-page.js"></script>

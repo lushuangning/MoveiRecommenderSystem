@@ -16,5 +16,13 @@ public interface UploadService {
      * @param dstSever 目标路径
      * @return 文件路径+文件名
      */
-    String uploadDataFile(MultipartFile dataFile, String dstSever);
+    String uploadToServer(MultipartFile dataFile, String dstSever);
+
+    String uploadToHDFS(String srcServer,String dstHdfs);
+
+    @Deprecated
+    void transfromToMysql(String fromDir,String toTable);
+
+    void saveToHive(String file,String table);
+
 }

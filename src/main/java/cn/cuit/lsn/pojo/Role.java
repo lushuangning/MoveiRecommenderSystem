@@ -1,5 +1,8 @@
 package cn.cuit.lsn.pojo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Role {
     private Integer roleId;
     private  String roleName;

@@ -14,7 +14,11 @@
     <title>个性化电影推荐</title>
     <link rel="stylesheet" href="../../static/framework/uikit-2.25.0/css/uikit.min.css" />
     <link rel="stylesheet" href="../../static/framework/uikit-2.25.0/css/docs.css">
+    <link rel="stylesheet" href="../../static/framework/bootstrap-3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+
     <link rel="icon" href="<%=web_domain %>/static/img/easyicon.ico" type="image/x-ico" />
+
     <script type="text/javascript" src="<%=file_domain %>/framework/jquery/jquery-3.1.1.js"></script>
     <script src="../../static/framework/uikit-2.25.0/js/uikit.min.js"></script>
 </head>
@@ -43,54 +47,13 @@
                         <li class="uk-nav-header">管理员</li>
                         <li><a class="uk-active" href="upload">上传文件</a></li>
                         <li><a href="http://localhost:8088/cluster">任务进度监控</a></li>
-                        <li><a href="http://localhost:50070/explorer.html#/" target="_blank">HDFS文件管理</a></li>
+                        <li><a href="http://localhost:50070/explorer.html#/">HDFS文件管理</a></li>
                     </ul>
 
                 </div>
 
                 <div class="tm-main uk-width-medium-3-4">
-
-                    <div class="uk-grid">
-                        <div class="uk-width-medium-1-1">
-                            <div class="uk-panel uk-panel-header">
-                                <h3 class="uk-panel-title"><i class="uk-icon-home"></i>欢迎页面</h3>
-                                电影推荐系统时推荐用户可能感兴趣的推荐系统。用户注册登录后，可以选择三种不同的算法得到推荐信息。
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="uk-grid">
-                        <div class="uk-width-medium-1-3">
-
-                            <div class="uk-thumbnail">
-                                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/uMZqKhT4YA6mqo2yczoznv7IDmv.jpg" alt="">
-                                <div class="uk-thumbnail-caption"><h4>玩具总动员</h4></div>
-                            </div>
-
-
-                        </div>
-
-                        <div class="uk-width-medium-1-3">
-
-                            <div class="uk-thumbnail">
-                                <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SY1000_CR0,0,675,1000_AL_.jpg" alt="">
-                                <div class="uk-thumbnail-caption"><h4>蝙蝠侠：黑暗骑士</h4></div>
-                            </div>
-
-                        </div>
-
-                        <div class="uk-width-medium-1-3">
-
-                            <div class="uk-thumbnail">
-                                <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/oV20u3QKMD5ftXdM2X8W1R2c2Ff.jpg" alt="">
-                                <div class="uk-thumbnail-caption"><h4>五十度灰</h4></div>
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
+                    <table id="recommend"></table>
 
                 </div>
             </div>
@@ -104,8 +67,8 @@
             <ul class="uk-subnav uk-subnav-line uk-flex-center">
                 <li><a href="https://movielens.org/">MovieLens</a></li>
                 <li><a href="https://grouplens.org/">GroupLens</a></li>
-                <li><a href="http://www.imdb.com/">IMDB</a></li>
-                <li><a href="https://www.themoviedb.org/">The Movie DB</a></li>
+                <li><a href="https://www.baidu.com/">Baidu</a></li>
+                <li><a href="https://www.google.com">Google</a></li>
             </ul>
 
             <div class="uk-panel">
@@ -116,6 +79,10 @@
     </div>
 </div>
 
+<script type="text/javascript" src="../../static/framework/bootstrap-3.3.7/js/bootstrap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+<script type="text/javascript" src="../../static/js/show-recommend.js"></script>
 
 </body>
 </html>

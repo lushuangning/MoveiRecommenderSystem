@@ -65,7 +65,7 @@
 
                 <div class="row clearfix">
                     <div class="col-md-12 column">
-                        <span class="title-center"><a href="<%=web_domain %>/register">没有账号？立即注册</a></span>
+                        <span class="title-center"><a href="<%=web_domain %>/registerPage">没有账号？立即注册</a></span>
                     </div>
                 </div>
 

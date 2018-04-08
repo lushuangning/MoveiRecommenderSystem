@@ -70,11 +70,11 @@
                                     </div>
 
                                     <div class="col-md-4 column">
-                                        <label class="title-center"><input type="radio" value="普通用户" name="normal"/>普通用户</label>
+                                        <label class="title-center"><input type="radio" value="normal" name="role"/>普通用户</label>
                                     </div>
 
                                     <div class="col-md-4 column">
-                                        <label class="title-center"><input type="radio" value="新用户" name="new"/>新用户</label>
+                                        <label class="title-center"><input type="radio" value="new" name="role"/>新用户</label>
                                     </div>
 
                                 </div>

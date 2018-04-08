@@ -19,6 +19,7 @@ public class UserRealm extends AuthorizingRealm {
     //FIXME 1.UserRealm在xml中注册了
     // 此处不能再通过注册构造方法注册UserService
     // 2.若采用下面的方式,UserServiceImpl里面也无法用推荐的方式注入UserDao
+
     private UserService userService = new UserServiceImpl();
 
     /**
@@ -27,11 +28,13 @@ public class UserRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         String userEmail = (String) principals.getPrimaryPrincipal();
+        System.out.println("---------------------------用户账号为:" + userEmail);
         SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
         // 根据用户名查询当前用户拥有的角色,一个用户可以有多个角色
         Set<Role> roles = userService.findRoles(userEmail);
         Set<String> roleNames = new HashSet<String>();
         for (Role role : roles) {
+            System.out.println("---------------------------用户角色为:" + role.getRoleName());
             roleNames.add(role.getRoleName());
         }
         // 将角色名称提供给info
@@ -49,13 +52,14 @@ public class UserRealm extends AuthorizingRealm {
     }
 
     /**
-     * 提供账户信息返回认证信息,授权
+     * 登录认证,创建用户的登录信息
      */
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        String userEmail = (String) token.getPrincipal();
-        //通过用户账号查询用户信息
-        User user = userService.findUserByEmail(userEmail);
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+        UsernamePasswordToken token = (UsernamePasswordToken)authenticationToken;
+//        String userEmail = (String) token.getPrincipal();
+        //通过用户名(即邮箱账号)查询用户信息
+        User user = userService.findUserByEmail(token.getUsername());
         if (user == null) {
             // 用户名不存在抛出异常
             throw new UnknownAccountException();

@@ -23,17 +23,7 @@
 	</context:component-scan>
 
     <!-- 注册拦截器 -->
-    <mvc:interceptors>
 
-        <mvc:interceptor>
-            <!-- 进行拦截：/**表示拦截所有controller -->
-            <mvc:mapping path="/**"/>
-            <!-- 不进行拦截 -->
-            <mvc:exclude-mapping path="/static/**"/>
-            <bean class="cn.cuit.lsn.interceptor.LoginInterceptor"></bean>
-        </mvc:interceptor>
-
-    </mvc:interceptors>
 
 	<!-- 静态资源处理， css， js， imgs -->
 	<!-- 下面两行代码的配置至关重要 -->
@@ -50,9 +40,9 @@
 	
 	<!-- 支持上传文件配置 -->  
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    	<property name="maxUploadSize" value="104857600" />
-     	<property name="maxInMemorySize" value="4096" />
-     	<property name="defaultEncoding" value="UTF-8"></property>
+    	<property name="maxUploadSize" value="1048576000" />
+     	<property name="maxInMemorySize" value="10240" />
+     	<property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
 

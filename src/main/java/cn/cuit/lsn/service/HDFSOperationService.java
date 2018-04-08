@@ -1,12 +1,17 @@
 package cn.cuit.lsn.service;
 
+import org.apache.hadoop.conf.Configuration;
+import org.springframework.stereotype.Repository;
+
 import java.io.IOException;
 
 /**
- * @version 0.1.0
+ * @version 0.3.0
  * @author 路双宁
+ * 已废弃
  */
 
+@Deprecated
 public interface HDFSOperationService {
     /**
      *上传服务器中的文件到hdfs文件系统
@@ -14,7 +19,7 @@ public interface HDFSOperationService {
      * @param dstHdfs hdfs文件系统地址
      * @throws IOException
      */
-    void copyFromLocal(String srcServer, String dstHdfs);
+    String copyFromLocal(String srcServer, String dstHdfs);
 
     /**
      *在hdfs文件系统中创建文件夹
@@ -37,4 +42,6 @@ public interface HDFSOperationService {
      * @return 文件夹下的文件信息，以json格式返回
      */
     String getDirectoryFromHDFS(String destDire);
+
+    Configuration getConf();
 }

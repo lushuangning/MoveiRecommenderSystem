@@ -28,14 +28,28 @@ public class PageController {
         return "upload";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping("/loginPage")
 	public String login(){
+
 		return "login";
 	}
 
-	@RequestMapping("/register")
+	@RequestMapping("/registerPage")
 	public String register(){
 
 		return "register";
+	}
+
+	@RequestMapping("/algorithm")
+	public String algorithmSetting(){
+
+
+		return "algorithm";
+	}
+
+	@RequestMapping("/showRecommendation")
+	public String showOff(){
+
+		return "show";
 	}
 }

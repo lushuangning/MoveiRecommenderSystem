@@ -37,7 +37,7 @@
         INSERT INTO users_roles(userId,roleId)  VALUES (#{userId},#{roleId})
     </insert>
 
-    <select id="findRoles" parameterType="String" resultMap="Roles">
+    <select id="findRoles" parameterType="String" resultMap="roles">
         SELECT roles.roleId,roles.roleName
         FROM users
         JOIN users_roles
@@ -47,7 +47,7 @@
         WHERE users.userEmail = #{userEmail}
     </select>
 
-    <select id="findByUserEmail" parameterType="String" resultType="cn.cuit.lsn.pojo.User">
+    <select id="findUserByEmail" parameterType="String" resultType="cn.cuit.lsn.pojo.User">
         select * from users
         where userEmail= #{userEmail}
     </select>

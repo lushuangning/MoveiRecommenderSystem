@@ -3,7 +3,7 @@ package cn.cuit.lsn.dao;
 import cn.cuit.lsn.dto.UserRegisterDto;
 import cn.cuit.lsn.pojo.Role;
 import cn.cuit.lsn.pojo.User;
-import org.springframework.stereotype.Component;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
@@ -16,14 +16,14 @@ public interface UserDao {
      * @param userEmail 用户账号
      * @return 用户id
      */
-    Integer getUserId(String userEmail);
+    Integer getUserId(@Param("userEmail") String userEmail);
 
     /**
      * 根据角色名称查询角色id
      * @param roleName
      * @return
      */
-    Integer getRoleId(String roleName);
+    Integer getRoleId(@Param("roleName") String roleName);
 //
 //    /**
 //     * 根据用户id查询用户信息
@@ -43,19 +43,19 @@ public interface UserDao {
      * @param userId 用户id
      * @param roleId 角色id
      */
-    void usersRoles(Integer userId, Integer roleId);
+    void usersRoles(@Param("userId")Integer userId, @Param("roleId")Integer roleId);
 
     /**
      * 根据用户账号查询用户的角色名称
      * @param userEmail 用户名称
      * @return 角色集合Set<Role>,一个用户可能有多种角色
      */
-    Set<Role> findRoles(String userEmail);
+    Set<Role> findRoles(@Param("userEmail") String userEmail);
 
     /**
      * 根据用户账号查询用户信息
      * @param userEmail 用户账号
-     * @return 用户id
+     * @return 用户信息
      */
-    User findUserByEmail(String userEmail);
+    User findUserByEmail(@Param("userEmail") String userEmail);
 }

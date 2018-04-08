@@ -5,7 +5,10 @@ import cn.cuit.lsn.dto.UserRegisterDto;
 import cn.cuit.lsn.pojo.User;
 import cn.cuit.lsn.service.UserService;
 import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authc.*;
+import org.apache.shiro.authc.ExcessiveAttemptsException;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
@@ -32,8 +35,10 @@ public class LoginRegisterController {
 
 
     @RequestMapping("/login")
-    public @ResponseBody  String userLogin(@RequestBody UserLoginDto userLoginDto){
+    public @ResponseBody
+    String userLogin(@RequestBody UserLoginDto userLoginDto){
         logger.info("-------------------------------------------User information:" + userLoginDto.getUserEmail() + userLoginDto.getUserPasswd());
+        //将用户邮箱账号作为用户名
         UsernamePasswordToken token = new UsernamePasswordToken(userLoginDto.getUserEmail(),userLoginDto.getUserPasswd());
         Subject subject = SecurityUtils.getSubject();
         try {
@@ -56,13 +61,13 @@ public class LoginRegisterController {
         User user = userService.findUserByEmail(userLoginDto.getUserEmail());
         subject.getSession().setAttribute("user",user);
 
-        return  "";
+        return  "OK";
     }
 
-    @RequestMapping("/register")
+    @RequestMapping(value = "/register",produces = "application/json; charset=utf-8")
     public @ResponseBody String userRegister(@RequestBody UserRegisterDto userRegisterDto){
         //MD5加密两次
-        String hashPasswd = new SimpleHash("md5",userRegisterDto.getUserPasswd(),2).toString();
+        String hashPasswd = new SimpleHash("md5",userRegisterDto.getUserPasswd(),userRegisterDto.getUserName(),2).toHex();
         userRegisterDto.setUserPasswd(hashPasswd);
         userService.register(userRegisterDto);
         return null;
