@@ -24,11 +24,11 @@ public class RecommenderController {
     public void setting(@RequestBody RecommenderArgs recommenderArgs){
 
         System.out.println("-------------------------------------"
-                + "\nnumRecommendations:" + recommenderArgs.getNumRecommendations()
+                + "\nuserId:" + recommenderArgs.getUserId()
                 + "\nsimilarityClassname:" + recommenderArgs.getSimilarityClassname()
-                + "\nmaxPrefsPerUser:" + recommenderArgs.getMaxPrefsPerUser()
-                + "\nminPrefsPerUser:" + recommenderArgs.getMinPrefsPerUser()
-                + "\nmaxSimilaritiesPerItem:" + recommenderArgs.getMaxSimilaritiesPerItem()
+                + "\nnearestNeighbor:" + recommenderArgs.getNearestNeighbor()
+                + "\nrecommendNum:" + recommenderArgs.getRecommendNum()
+                + "\nwhichCF:" + recommenderArgs.getWhichCF()
         );
 
         recommenderService.customRecommend(recommenderArgs);

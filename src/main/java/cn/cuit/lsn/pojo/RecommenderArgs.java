@@ -6,11 +6,10 @@ import org.springframework.stereotype.Component;
 public class RecommenderArgs {
 
     private String whichCF;
-    private int numRecommendations;
     private String similarityClassname;
-    private int maxPrefsPerUser;
-    private int minPrefsPerUser;
-    private int maxSimilaritiesPerItem;
+    private int userId;
+    private int nearestNeighbor;
+    private int recommendNum;
 
     public String getWhichCF() {
         return whichCF;
@@ -18,14 +17,6 @@ public class RecommenderArgs {
 
     public void setWhichCF(String whichCF) {
         this.whichCF = whichCF;
-    }
-
-    public int getNumRecommendations() {
-        return numRecommendations;
-    }
-
-    public void setNumRecommendations(int numRecommendations) {
-        this.numRecommendations = numRecommendations;
     }
 
     public String getSimilarityClassname() {
@@ -36,27 +27,27 @@ public class RecommenderArgs {
         this.similarityClassname = similarityClassname;
     }
 
-    public int getMaxPrefsPerUser() {
-        return maxPrefsPerUser;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setMaxPrefsPerUser(int maxPrefsPerUser) {
-        this.maxPrefsPerUser = maxPrefsPerUser;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
-    public int getMinPrefsPerUser() {
-        return minPrefsPerUser;
+    public int getNearestNeighbor() {
+        return nearestNeighbor;
     }
 
-    public void setMinPrefsPerUser(int minPrefsPerUser) {
-        this.minPrefsPerUser = minPrefsPerUser;
+    public void setNearestNeighbor(int nearestNeighbor) {
+        this.nearestNeighbor = nearestNeighbor;
     }
 
-    public int getMaxSimilaritiesPerItem() {
-        return maxSimilaritiesPerItem;
+    public int getRecommendNum() {
+        return recommendNum;
     }
 
-    public void setMaxSimilaritiesPerItem(int maxSimilaritiesPerItem) {
-        this.maxSimilaritiesPerItem = maxSimilaritiesPerItem;
+    public void setRecommendNum(int recommendNum) {
+        this.recommendNum = recommendNum;
     }
 }

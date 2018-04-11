@@ -38,12 +38,11 @@
 
                     <div class="tm-sidebar uk-width-medium-1-4 uk-hidden-small">
                         <ul class="tm-nav uk-nav" data-uk-nav>
-                            <li class="uk-nav-header">普通用户</li>
+                            <li class="uk-nav-header">功能选择</li>
                             <li><a href="index">首页</a></li>
                             <li><a href="algorithm">推荐设置</a></li>
                             <li><a href="showRecommendation">结果展示</a></li>
-                            <li class="uk-nav-header">管理员</li>
-                            <li><a class="uk-active" href="upload">上传文件</a></li>
+                            <li><a href="upload">上传文件</a></li>
                             <li><a href="http://localhost:8088/cluster">任务进度监控</a></li>
                             <li><a href="http://localhost:50070/explorer.html#/">HDFS文件管理</a></li>
                         </ul>

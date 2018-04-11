@@ -70,7 +70,7 @@ public class UploadController {
 
         //开启默认推荐
         recommenderService.defaultRecommend();
-
+//        recommenderService.saveToMySQL("/user/hive/warehouse/default_recommends","default_recommends");
         return "OK";
     }
 

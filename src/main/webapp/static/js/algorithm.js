@@ -4,10 +4,8 @@ $(document).ready(function(){
 	$("#confirm").click(function(){
 		var formData = new Object;
 
-        formData.numRecommendations = $('#numRecommendations').val();
-        formData.maxSimilaritiesPerItem = $('#maxSimilaritiesPerItem').val();
-        formData.minPrefsPerUser = $('#minPrefsPerUser').val();
-        formData.maxPrefsPerUser = $('#maxPrefsPerUser').val();
+        formData.nearestNeighbor = $('#nearestNeighbor').val();
+        formData.recommendNum = $('#recommendNum').val();
         formData.similarityClassname = $('#similarityClassname').val();
         formData.whichCF = $('#whichCF').val();
 

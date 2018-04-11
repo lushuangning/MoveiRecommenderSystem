@@ -4,8 +4,18 @@ public class MovieInfo {
 
     public MovieInfo(){}
 
+    public String movieId;
     public String title;
     public String genres;
+
+
+    public String getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
+    }
 
     public String getTitle() {
         return title;

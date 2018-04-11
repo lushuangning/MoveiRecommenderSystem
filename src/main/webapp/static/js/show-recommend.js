@@ -27,6 +27,9 @@ $(document).ready(function(){
                     alert('出错了！出错原因：' + status);
                 },
                 columns: [{
+                    field: 'movieId',
+                    title: '电影id'
+                    },{
                     field: 'title',
                     title: '电影名'
                 }, {

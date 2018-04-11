@@ -38,12 +38,11 @@
                     <div class="tm-sidebar uk-width-medium-1-4 uk-hidden-small">
                         <ul class="tm-nav uk-nav" data-uk-nav>
                             <ul class="tm-nav uk-nav" data-uk-nav>
-                                <li class="uk-nav-header">普通用户</li>
+                                <li class="uk-nav-header">功能选择</li>
                                 <li><a href="index">首页</a></li>
                                 <li><a href="algorithm">推荐设置</a></li>
                                 <li><a href="showRecommendation">结果展示</a></li>
-                                <li class="uk-nav-header">管理员</li>
-                                <li><a class="uk-active" href="upload">上传文件</a></li>
+                                <li><a href="upload">上传文件</a></li>
                                 <li><a href="http://localhost:8088/cluster">任务进度监控</a></li>
                                 <li><a href="http://localhost:50070/explorer.html#/">HDFS文件管理</a></li>
                             </ul>
@@ -57,44 +56,24 @@
 
                             <div class="uk-form-row">
 
-                                <label class="uk-form-label">NumRecommendations</label>
-                                <div class="uk-form-icon">
-                                    <i class="uk-icon-gift"></i>
-                                    <input id="numRecommendations" placeholder="推荐数量" type="number" class="uk-form-width-medium" min="1" max="10" />
-                                </div>
-
-                            </div>
-
-                            <div class="uk-form-row">
-
-                                <label class="uk-form-label">MaxSimilaritiesPerItem</label>
+                                <label class="uk-form-label">最近邻个数</label>
                                 <div class="uk-form-icon">
                                     <i class="uk-icon-calendar"></i>
-                                    <input id="maxSimilaritiesPerItem" type="number" placeholder="最大相似物品数量" class="uk-form-width-medium" min="50" max="200" />
+                                    <input id="nearestNeighbor" type="number" placeholder="最近邻个数" class="uk-form-width-medium" min="10" max="100" />
                                 </div>
 
                             </div>
 
                             <div class="uk-form-row">
 
-                                <label class="uk-form-label">MinPrefsPerUser</label>
+                                <label class="uk-form-label">推荐数量</label>
                                 <div class="uk-form-icon">
                                     <i class="uk-icon-child"></i>
-                                    <input id="minPrefsPerUser" type="number" placeholder="最小评分，默认是1" class="uk-form-width-medium" min="1" max="10" />
+                                    <input id="recommendNum" type="number" placeholder="推荐数量，默认是10" class="uk-form-width-medium" min="1" max="20" />
                                 </div>
 
                             </div>
 
-
-                            <div class="uk-form-row">
-
-                                <label class="uk-form-label">maxPrefsPerUser</label>
-                                <div class="uk-form-icon">
-                                    <i class="uk-icon-cubes"></i>
-                                    <input id="maxPrefsPerUser" type="number" placeholder="默认为10" class="uk-form-width-medium" min="1" max="10" />
-                                </div>
-
-                            </div>
 
                             <div class="uk-form-row">
 
@@ -103,7 +82,6 @@
                                     <select name="" id="whichCF" class="uk-form-width-medium">
                                         <option value="ItemCF" selected="selected">Item Based</option>
                                         <option value="UserCF">User Based</option>
-                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
 

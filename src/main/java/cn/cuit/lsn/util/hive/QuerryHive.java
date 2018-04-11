@@ -24,8 +24,9 @@ public class QuerryHive {
             rs = st.executeQuery(sql);
             while (rs.next()){
                 movieInfo = new MovieInfo();
-                movieInfo.setTitle(rs.getString(1));
-                movieInfo.setGenres(rs.getString(2));
+                movieInfo.setMovieId(String.valueOf(rs.getInt(1)));
+                movieInfo.setTitle(rs.getString(2));
+                movieInfo.setGenres(rs.getString(3));
                 movies.add(movieInfo);
                 System.out.println("-------" + movieInfo.getTitle() + "\t\t" + movieInfo.getGenres());
             }

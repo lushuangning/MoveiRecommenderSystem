@@ -17,4 +17,6 @@ public interface RecommenderService {
     void defaultRecommend();
 
     List<?> showResult(Integer userId);
+
+    void saveToMySQL(String fromDir,String toTable);
 }
